@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: langchain4j-learn
+
+server:
+  port: 8080
+
+# ===========================
+# LangChain4j 配置
+# ===========================
+langchain4j:
+  open-ai:
+    chat-model:
+      # 替换为你的 OpenAI API Key
+      api-key: ${OPENAI_API_KEY:your-api-key-here}
+      # 模型名称（可替换为 gpt-4o、gpt-4-turbo 等）
+      model-name: gpt-4o-mini
+      # 最大回复 token 数
+      max-tokens: 1024
+      # 创意度（0.0 ~ 2.0）
+      temperature: 0.7
+      # 如使用国内代理/自定义 API，可在此配置 base-url
+      # base-url: https://api.openai.com/v1
+      log-requests: true
+      log-responses: true
+
+# ===========================
+# Knife4j 配置
+# ===========================
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-footer: false
+    enable-debug: true
+    enable-open-api: true
+
+# SpringDoc OpenAPI 配置
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  # 扫描的包路径
+  packages-to-scan: com.learn.langchain4j.controller
+
+# ===========================
+# 日志配置
+# ===========================
+logging:
+  level:
+    com.learn.langchain4j: DEBUG
+    dev.langchain4j: DEBUG
