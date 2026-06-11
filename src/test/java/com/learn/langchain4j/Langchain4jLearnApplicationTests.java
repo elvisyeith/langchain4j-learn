@@ -1,13 +1,17 @@
 package com.learn.langchain4j;
 
+import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class Langchain4jLearnApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void helloWorld() {
+        OpenAiChatModel model = OpenAiChatModel.builder()
+                .baseUrl("http://langchain4j.dev/demo/openai/v1")
+                .apiKey("demo")
+                .modelName("gpt-4o-mini").build();
+        String answer = model.generate("你是谁");
+        System.out.println(answer);
     }
-
 }

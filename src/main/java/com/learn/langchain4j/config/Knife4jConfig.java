@@ -14,18 +14,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Knife4jConfig {
 
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("LangChain4j 学习项目 API")
-                        .description("Spring Boot + LangChain4j 学习示例接口文档")
-                        .version("v1.0.0")
-                        .contact(new Contact()
-                                .name("Learn")
-                                .email("learn@example.com"))
-                        .license(new License()
-                                .name("Apache 2.0")
-                                .url("https://www.apache.org/licenses/LICENSE-2.0")));
-    }
+        @Bean
+        public OpenAPI customOpenAPI() {
+                return new OpenAPI()
+                                .info(new Info()
+                                                .title("LangChain4j 学习项目 API")
+                                                .description("Spring Boot + LangChain4j 学习示例接口文档")
+                                                .version("v1.0.0")
+                                                .contact(new Contact()
+                                                                .name("Learn")
+                                                                .email("learn@example.com"))
+                                                .license(new License()
+                                                                .name("Apache 2.0")
+                                                                .url("https://www.apache.org/licenses/LICENSE-2.0")));
+        }
 }
