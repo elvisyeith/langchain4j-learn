@@ -5,7 +5,6 @@ import com.learn.langchain4j.service.ChatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,10 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "01. 基础聊天", description = "LangChain4j ChatLanguageModel 基础用法示例")
 @RestController
 @RequestMapping("/api/chat")
-@RequiredArgsConstructor
 public class ChatController {
 
     private final ChatService chatService;
+
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
+    }
 
     @Operation(summary = "简单聊天", description = "直接向 AI 发送一条消息并获取回复")
     @PostMapping("/simple")

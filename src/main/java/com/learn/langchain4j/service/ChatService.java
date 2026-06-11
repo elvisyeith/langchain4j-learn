@@ -3,8 +3,8 @@ package com.learn.langchain4j.service;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -16,13 +16,17 @@ import java.util.Map;
  * 1. 直接调用 ChatLanguageModel
  * 2. 使用 PromptTemplate 构建提示词
  */
-@Slf4j
 @Service
-@RequiredArgsConstructor
 public class ChatService {
+
+    private static final Logger log = LoggerFactory.getLogger(ChatService.class);
 
     // 注入 ChatLanguageModel（通过 application.yml 配置 API Key 后自动装配）
     private final ChatLanguageModel chatLanguageModel;
+
+    public ChatService(ChatLanguageModel chatLanguageModel) {
+        this.chatLanguageModel = chatLanguageModel;
+    }
 
     /**
      * 简单聊天：直接发送消息

@@ -1,20 +1,46 @@
 package com.learn.langchain4j.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  * 统一 API 响应结果封装
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ApiResult<T> {
 
     private Integer code;
     private String message;
     private T data;
+
+    public ApiResult() {
+    }
+
+    public ApiResult(Integer code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 
     public static <T> ApiResult<T> success(T data) {
         return new ApiResult<>(200, "success", data);
