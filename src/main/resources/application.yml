@@ -1,6 +1,9 @@
 spring:
   application:
     name: langchain4j-learn
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/langchain
 
 server:
   port: 8080
