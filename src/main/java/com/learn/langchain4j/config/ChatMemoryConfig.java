@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
+import dev.langchain4j.store.memory.chat.InMemoryChatMemoryStore;
 
 @Configuration
 public class ChatMemoryConfig {
@@ -16,4 +17,8 @@ public class ChatMemoryConfig {
                 .build();
     }
 
+    @Bean
+    public ChatMemoryStore chatMemoryStore() {
+        return new InMemoryChatMemoryStore();
+    }
 }
